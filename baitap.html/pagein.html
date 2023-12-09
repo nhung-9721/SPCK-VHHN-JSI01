@@ -432,7 +432,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
     <script src="https://use.fontawesome.com/452826394c.js"></script>
     <script>
-        const foods = JSON.parse(localStorage.getItem("foods")) ?? [];
+        const foods = JSON.parse(localStorage.getIte("foods")) ?? [];
         const foodsContainer = document.getElementById("foods");
         foods.forEach(item => {
             foodsContainer.innerHTML += `
@@ -463,7 +463,7 @@
             searchsContainer.innerHTML+=`
             <p id="search-input "> ${item.name}</p>
             `
-        })
+        });
     </script
 </body>
 
