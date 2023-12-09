@@ -219,8 +219,9 @@
                                                     clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <input type="text" id="simple-search"class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500      "
-                                        placeholder="Search" required="">  
+                                        <input type="text" id="simple-search"
+                                            class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500      "
+                                            placeholder="Search" required="">
                                     </div>
                                 </form>
                             </div>
@@ -457,14 +458,14 @@
         });
 
 
-        const searchs= JSON.parse(localStorage.getItem("foods")) ??[];
+        const searchs = JSON.parse(localStorage.getItem("foods")) ?? [];
         const searchsContainer = document.getElementById("simple-search");
-        foods.forEach(item =>{
-            searchsContainer.innerHTML+=`
+        foods.forEach(item => {
+            searchsContainer.innerHTML += `
             <p id="search-input "> ${item.name}</p>
             `
         });
-    </script
+    </script>
 </body>
 
 </html>
