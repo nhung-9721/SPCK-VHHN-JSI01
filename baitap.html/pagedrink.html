@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
-    <link href="./pagein.css" rel="stylesheet" />
+    <link href="./pagedrink.css" rel="stylesheet" />
     <style>
         [x-cloak] {
             display: none
@@ -15,11 +14,12 @@
     <script src="https://unpkg.com/alpinejs" defer></script>
     <!-- Include the TailwindCSS library on your page -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./foods.js"></script>
+    <script src="./pagedrink.js"></script>
 </head>
-
 <body>
+    
 
+    
     <div>
         <header>
             <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 ">
@@ -330,7 +330,7 @@
                     <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 ">MENU</h2>
                     <p class="font-light text-gray-500 lg:mb-16 sm:text-xl ">Serving you is the honor of our restaurant</p>
                 </div>
-                <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2" id="foods">
+                <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2" id="drinks">
                     <!-- ... -->
                 </div>
             </div>
@@ -426,15 +426,13 @@
         </section>
 
     </div>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
     <script src="https://use.fontawesome.com/452826394c.js"></script>
     <script>
-        const foods = JSON.parse(localStorage.getItem("foods")) ?? [];
-        const foodsContainer = document.getElementById("foods");
-        foods.forEach(item => {
-            foodsContainer.innerHTML += `
+         const drinks = JSON.parse(localStorage.getItem("drinks")) ?? [];
+        const drinkContainer = document.getElementById("drinks");
+        drinks.forEach(item => {
+            drinkContainer.innerHTML += `
                 <div class="items-center bg-gray-50 rounded-lg shadow sm:flex">
                     <a href="#">
                         <img class="w-full rounded-lg sm:rounded-none sm:rounded-l-lg"
@@ -446,24 +444,12 @@
                             <a href="#">${item.name}</a>
                         </h3>
                         <span class="text-gray-500 ">${item.price.toLocaleString()} VND</span>
-        describe:"Món ăn đậm chất truyền thống mang đến cho thực khách một trải nghiệm thú vị "
-                        <p class="mt-3 mb-4 font-light text-gray-500 ">${item.describe}</p>
                             <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add to cart</button>
                     </div>
                 </div>
-
             `;
         });
-
-
-        // const searchs = JSON.parse(localStorage.getItem("foods")) ?? [];
-        // const searchsContainer = document.getElementById("simple-search");
-        // foods.forEach(item => {
-        //     searchsContainer.innerHTML += `
-        //     <p id="search-input "> ${item.name}</p>
-        //     `
-        // });
     </script>
-</body>
 
+</body>
 </html>
