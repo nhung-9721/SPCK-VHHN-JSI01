@@ -4,8 +4,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        [x-cloak] {
+            display: none
+        }
+    </style>
+    <!-- Include the Alpine library on your page -->
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <!-- Include the TailwindCSS library on your page -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    
+    <div>
+        <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 ">
+            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+                <a href="https://flowbite.com" class="flex items-center">
+                    <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9"
+                        alt="Flowbite Logo" />
+                    <span class="self-center text-xl font-semibold whitespace-nowrap ">We &
+                        You</span>
+                </a>
+                <div class="flex items-center lg:order-2">
+                    <a href="#"
+                        class="text-gray-800  hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">Log
+                        in</a>
+                    <a href="#"
+                        class="text-black bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2   focus:outline-none ">Get
+                        started</a>
+                    <button data-collapse-toggle="mobile-menu-2" type="button"
+                        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200   "
+                        aria-controls="mobile-menu-2" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+                    id="mobile-menu-2">
+                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 "
+                                aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown"
+                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0  md:   md: ">
+                                Home <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                            </button>
+                            <div id="mega-menu-dropdown"
+                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md  md:grid-cols-3 ">
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4 ">
+                                    <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                              Noddles
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                               Soup
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                              Salar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                               Soda
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4 ">
+                                    <ul class="space-y-4">
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                                Beer
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                                Cake
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                               Cafe
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                                Bestseller
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="p-4">
+                                    <ul class="space-y-4">
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                                Contact Us
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                                Support Center
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-500  hover:text-blue-600 ">
+                                                Terms
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0  lg:   lg: ">Best
+                                seller</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0  lg:   lg: ">Drink
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0  lg:   lg: ">Cake</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0  lg:   lg: ">Other</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <section class="bg-white"
+        style=" background-image:
+        url(https://cookbeo.com/media/2021/03/bun-ca/thumbnails/bun-ca-5x7-1024.webp);
+        background-size: cover; background-position: center;background-color: #0000006b; background-blend-mode: multiply;">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl "
+                style="color:white">WE & YOU</h1>
+            <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 "
+                style=" color:floralwhite;">Chào mừng đến với nhà hàng bán bún cá, nơi bạn có thể tận hưởng món ngon truyền thống không thể bỏ qua. Với hương vị đặc trưng và chất lượng tuyệt vời, chúng tôi cam kết mang đến cho bạn những trải nghiệm ẩm thực tuyệt vời nhất.</p>
+            <div
+                class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                <a href="#"
+                    class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center  rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 "
+                    style="color:white">
+                    Learn more
+                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+                <a href="#"
+                    class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-whitr-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
+                    style="
+                    color:white">
+                    Explore
+                </a>
+            </div>
+        </div>
+    </section>
+    </div>
+    <div>
+        <section class="bg-white bg-gray-900">
+            <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+                <img class="w-full hidden" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image">
+                <img class="w-full hidden dark:block" src="https://images.foody.vn/res/g106/1050353/s400x400/9562570f-4769-46c1-acda-04ba7a52-97e625bf-201127082615.jpeg" alt="dashboard image">
+                <div class="mt-4 md:mt-0">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-black">Giới Thiệu Món Ăn </h2>
+                    <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-900">Bún cá là một món ăn truyền thống của miền Trung Việt Nam, nổi tiếng với hương vị đậm đà và thơm ngon. Chúng tôi chế biến bún cá từ những nguyên liệu tươi ngon, đảm bảo mang đến cho bạn một trải nghiệm ẩm thực đặc biệt.</p>
+                    <a href="#" class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
+                        Get started
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div>
+      
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
 </body>
 </html>
