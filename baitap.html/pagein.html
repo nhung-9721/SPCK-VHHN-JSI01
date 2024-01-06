@@ -16,6 +16,7 @@
     <!-- Include the TailwindCSS library on your page -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./foods.js"></script>
+
 </head>
 
 <body>
@@ -35,16 +36,20 @@
                             class="text-gray-800  hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">Log
                             in</a>
                         <a href="#"
-                            class="text-black bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2   focus:outline-none ">Get
-                            started</a>
+                            class="text-black bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2   focus:outline-none ">
+                            <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i
+                                    class="fa fa-shopping-basket fa-stack-1x fa-inverse"></i></span></a>
                         <button data-collapse-toggle="mobile-menu-2" type="button"
                             class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200   "
                             aria-controls="mobile-menu-2" aria-expanded="false">
                             <span class="sr-only">Open main menu</span>
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                <path fill-rule="evenodd" <span class="fa-stack fa-lg"><i
+                                        class="fa fa-circle fa-stack-2x"></i><i
+                                        class="fa fa-shopping-basket fa-stack-1x fa-inverse"></i></span>
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110
+                                    2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
                                     clip-rule="evenodd"></path>
                             </svg>
                             <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
@@ -437,8 +442,8 @@
 
         function renderFoods(needleFoods) {
             foodsContainer.innerHTML = "";
-            needleFoods.forEach(item => {
-                foodsContainer.innerHTML += `
+            needleFoods.forEach((item, index) => {
+                foodsContainer.insertAdjacentHTML("beforeend", `
                     <div class="items-center bg-gray-50 rounded-lg shadow sm:flex">
                         <a href="#">
                             <img class="w-full rounded-lg sm:rounded-none sm:rounded-l-lg"
@@ -451,10 +456,25 @@
                             </h3>
                             <span class="text-gray-500 font-medium">${item.price.toLocaleString()} VND</span>
                             <p class="mt-3 mb-4 text-gray-500 ">${item.describe}</p>
-                                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add to cart</button>
+                                <button id="cart-${index}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add to cart</button>
                         </div>
                     </div>
-                `;
+                `);
+
+                foodsContainer.querySelector(`#cart-${index}`).addEventListener("click", () => {
+                    const cart = JSON.parse(localStorage.getItem("cart")) || []; // Lấy ra danh sách giỏ hàng từ localStorage
+                    const exist = cart.findIndex(cartItem => cartItem.item.id == item.id); // Kiểm tra xem sản phẩm muốn thêm đã tồn tại trong giỏ hàng hay chưa
+                    if (exist < 0) { // Nếu chưa tồn tại
+                        cart.push({ // Thêm sản phẩm vào giỏ hàng
+                            item: item,
+                            quantity: 1
+                        })
+                    } else { // Nếu đã tồn tại
+                        cart[exist].quantity += 1; // Cập nhật số lượng cho sản phẩm
+                    }
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    alert("Đã thêm sản phẩm vào giỏ hàng");
+                })
             });
         }
 
